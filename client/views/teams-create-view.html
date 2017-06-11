@@ -1,0 +1,49 @@
+<form id="creationForm" ng-submit="createTeam()">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h6 class="text-center">Crear nuevo equipo</h6>
+        </div>
+        <div class="panel-body">
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="team.name">Nombre</label>
+                <span class="input-icon">
+                    <input type="text" id="team.name" class="form-control" placeholder="Nombre" ng-model="team.name"
+                           required>
+                    <i class="fa fa-id-card-o"></i>
+                </span>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="team.nickname">Apodo</label>
+                <span class="input-icon">
+                    <input type="text" id="team.nickname" class="form-control" placeholder="Apodo"
+                           ng-model="team.nickname" required>
+                    <i class="fa fa-id-card-o"></i>
+                </span>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="team.foundationYear">Año de fundación</label>
+                <span class="input-icon">
+                    <input type="number" id="team.foundationYear" title="*Escriba el año con 4 dígitos" min="1800"
+                           max="{{currentYear}}" class="form-control"
+                           placeholder="Año de fundación"
+                           ng-model="team.foundationYear" required>
+                    <i class="fa fa-birthday-cake "></i>
+                </span>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="control-label" for="team.stadiumName">Estadio</label>
+                <span class="input-icon">
+                    <input type="text" id="team.stadiumName" class="form-control" placeholder="Estadio"
+                           ng-model="team.stadiumName" required>
+                    <i class="fa fa-home"></i>
+                </span>
+            </div>
+            <div class="form-group text-center  col-sm-12 margin-top-15">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-floppy-o"></i>
+                    <span class="hidden-xs"><b>Crear equipo</b></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
