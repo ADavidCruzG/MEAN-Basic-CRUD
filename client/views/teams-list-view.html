@@ -1,0 +1,57 @@
+<div class="row margin-top-15">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h6 class="text-center">Listado de equipos</h6>
+        </div>
+        <div class="panel-body">
+            <div ng-if="teamsList.length > 0" class="table-responsive margin-top-20">
+                <table class="table table-stylish">
+                    <thead>
+                    <tr>
+                        <th class="center no-border">#</th>
+                        <th class="no-border">Nombre <a style="cursor: pointer" ng-click="orderBy(filterName)">
+                            <i class='fa fa-sort'></i></a>
+                        </th>
+                        <th class="no-border">Fundación <a style="cursor: pointer" ng-click="orderBy(filterFoundation)">
+                            <i class='fa fa-sort'></i></a>
+                        </th>
+                        <th class="no-border">Apodo <a style="cursor: pointer" ng-click="orderBy(filterNickname)">
+                            <i class='fa fa-sort'></i></a>
+                        </th>
+                        <th class="no-border">Estadio <a style="cursor: pointer" ng-click="orderBy(filterStadium)">
+                            <i class='fa fa-sort'></i></a>
+                        </th>
+                        <th class="no-border active text-center">Editar</th>
+                        <th class="no-border active text-center">Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="team in teamsList | orderBy:orderByFilter:reverse track by team._id">
+                        <td class="center">{{$index + 1}}</td>
+                        <td>{{team.name}}</td>
+                        <td>{{team.foundationYear}}</td>
+                        <td>{{team.nickname}}</td>
+                        <td>{{team.stadiumName}}</td>
+                        <td class="text-center active">
+                            <button class="btn btn-sm btn-primary" type="button" ui-sref="teams_edit({id: team._id})">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </td>
+                        <td class="text-center active">
+                            <button class="btn btn-sm btn-danger" type="button" ng-click="deleteTeam(team)">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-if="teamsList.length == 0" class="text-center">
+                <p><h6>No hay registros</h6></p>
+            </div>
+            <div ng-if="teamsList.length > 0" class="pull-right box">
+                <span>Total de equipos: </span><span class="badge btn-success">{{total}}</span>
+            </div>
+        </div>
+    </div>
+</div>
